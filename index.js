@@ -3,8 +3,10 @@ const fs = require("fs");
 const path = require("path");
 const {MongoClient} = require("mongodb");
 
+// Port number that server listens to
 const PORT = 3891;
 
+//Fetches records from given database
 async function getTaskDetails(client){
     const cursor = client.db("TaskSchedulerdb").collection("TaskDetails").find({});
     const results = await cursor.toArray();
